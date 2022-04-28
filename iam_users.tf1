@@ -1,0 +1,38 @@
+#Defenition IAM users
+resource "aws_iam_user" "dev1" {
+  name = "dev1"
+
+}
+resource "aws_iam_user" "dev2" {
+  name = "dev2"
+
+}
+#Creation a group 
+resource "aws_iam_group" "ec2_s3_group" {
+  name = "ec2_s3_group"
+
+}
+#Assign users to group
+
+resource "aws_iam_group_membership" "dev_team" {
+  name = "ec2_s3_group_dev_team"
+
+  users = [
+    aws_iam_user.dev1.name,
+    aws_iam_user.dev2.name,
+  ]
+
+  group = aws_iam_group.ec2_s3_group.name
+}
+
+# Attach the policy to the group
+resource "aws_iam_policy_attachment" "attachment_s3" {
+  name       = "attachment_s3"
+  groups     = [aws_iam_group.ec2_s3_group.name]
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+}
+resource "aws_iam_policy_attachment" "attachment_ec2" {
+  name       = "attachment_ec2"
+  groups     = [aws_iam_group.ec2_s3_group.name]
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+}
