@@ -7,7 +7,6 @@ module "iam_group_complete" {
     module.iam_user1.iam_user_name,
     module.iam_user2.iam_user_name,
   ]
-
 }
 
 resource "aws_iam_policy_attachment" "attachment_s3" {
