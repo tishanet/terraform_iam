@@ -1,5 +1,5 @@
 
-#EC2
+# EC2
 variable "bastion_name" {}
 variable "jmpbox_name" {}
 variable "ami_jmpbox_id" {}
@@ -9,7 +9,7 @@ variable "monitoring" {
   type = bool
 }
 variable "ami_bastion_id" {}
-#VPC
+# VPC
 variable "name_vpc" {}
 variable "cidr_vpc" {}
 variable "availability_zone_vpc" {
@@ -22,10 +22,10 @@ variable "dns_hostnames_vpc" {
   type    = bool
   default = true
 }
-#SG
+# SG
 variable "ingress_from_myip" {}
 
-#Tags
+# Tags
 variable "tags_vpc" {
   type = map(any)
   default = {

@@ -16,5 +16,5 @@ public_subnet_vpc     = ["10.10.10.0/24"]
 # Security group
 ingress_from_myip = ["46.128.44.51/32"]
 
-#S3
+# S3
 s3_bucket_zdh = "zdh.bucket.main"

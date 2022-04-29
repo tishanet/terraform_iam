@@ -24,3 +24,8 @@ module "ec2_jmpbox" {
   vpc_security_group_ids = [module.bastion_sg.security_group_id]
   subnet_id              = module.vpc_zdh.public_subnets[0]
 }
+
+output "bastion_public_ip" {
+  value = module.ec2_bastion.public_dns
+
+}
