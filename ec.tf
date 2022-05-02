@@ -12,7 +12,7 @@ module "ec2_bastion" {
   tags                   = var.tags_bastion
 }
 
-module "ec2_jmpbox" {
+/*module "ec2_jmpbox" {
   source = "terraform-aws-modules/ec2-instance/aws"
   name   = var.jmpbox_name
 
@@ -23,7 +23,7 @@ module "ec2_jmpbox" {
   root_block_device      = [{ volume_size = 8 }]
   vpc_security_group_ids = [module.bastion_sg.security_group_id]
   subnet_id              = module.vpc_zdh.public_subnets[0]
-}
+}*/
 
 output "bastion_public_ip" {
   value = module.ec2_bastion.public_dns
