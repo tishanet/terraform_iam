@@ -7,5 +7,5 @@ module "iam_group_with_custom_policies" {
     module.iam_user1.iam_user_name,
     module.iam_user2.iam_user_name,
   ]
-  custom_group_policy_arns = module.iam_policy.arn
+  custom_group_policy_arns = [module.iam_policy.arn]
 }
